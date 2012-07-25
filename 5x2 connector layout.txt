@@ -1,0 +1,36 @@
+The principle of the GMC-4 keyboard
+-----------------------------------
+
+The keyboard of GMC-4 uses the 4x5 matrix of buttons. 4 wires are scan-lines
+(line selectors).  Other 5 wires form the key status bitmap port saying which
+buttons are pressed in the selected line.  When GMC-4 needs to check which 
+buttons are pressed in a particular line, it sets the corresponing scan-line 
+to 1 and reads the value port.  The bit map received from the value port
+says which buttons are pressed in the selected line.
+
+GMC-4 constantly scans the keyboard using the decribed method secuentially 
+polling all the lines.
+
+            PortA     IC2                       IC1                   
+Key  Code   43210     B:A      Row             C:B:A          Column        Crossing
+---|------|-------|---------|-------------|-------------|-----------------|----------
+ 0    00    00000      00     0,1,2,3,RST       000       0,4,8,C            0
+ 1    01    00001      00     0,1,2,3,RST       001       1,5,9,D            1
+ 2    02    00010      00     0,1,2,3,RST       010       2,6,A,E            2
+ 3    03    00011      00     0,1,2,3,RST       011       3,7,B,F            3
+ 4    04    00100      01     4,5,6,7,RUN       000       0,4,8,C            4
+ 5    05    00101      01     4,5,6,7,RUN       001       1,5,9,D            5
+ 6    06    00110      01     4,5,6,7,RUN       010       2,6,A,E            6
+ 7    07    00111      01     4,5,6,7,RUN       011       3,7,B,F            7
+ 8    08    01000      10     8,9,A,B,INC       000       0,4,8,C            8
+ 9    09    01001      10     8,9,A,B,INC       001       1,5,9,D            9
+ A    0A    01010      10     8,9,A,B,INC       010       2,6,A,E            A
+ B    0B    01011      10     8,9,A,B,INC       011       3,7,B,F            B
+ C    0C    01100      11     C,D,E,F,ADR       000       0,4,8,C            C
+ D    0D    01101      11     C,D,E,F,ADR       001       1,5,9,D            D
+ E    0E    01110      11     C,D,E,F,ADR       010       2,6,A,E            E
+ F    0F    01111      11     C,D,E,F,ADR       011       3,7,B,F            F
+RST   10    10000      00     0,1,2,3,RST       100       RST,RUN,INC,ADR    RST
+RUN   14    10100      01     4,5,6,7,RUN       100       RST,RUN,INC,ADR    RUN
+INC   18    11000      10     8,9,A,B,INC       100       RST,RUN,INC,ADR    INC
+ADR   1C    11100      11     C,D,E,F,ADR       100       RST,RUN,INC,ADR    ADR
