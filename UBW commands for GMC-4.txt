@@ -1,0 +1,42 @@
+# PA=0, PB=FF
+O,0,255,0
+
+# PA, PB output
+C,0,0,0,0
+
+# PA=0, PB=FF and PB, PB to output
+O,0,255,0
+C,0,0,0,0
+
+# Send a 'x' key
+O,x,255,0
+
+# Send a key and enable the multiplexer
+O,0,0,0
+O,1,0,0
+O,2,0,0
+O,3,0,0
+O,4,0,0
+O,5,0,0
+O,6,0,0
+O,7,0,0
+O,8,0,0
+O,9,0,0
+O,10,0,0
+O,11,0,0
+O,12,0,0
+O,13,0,0
+O,14,0,0
+O,15,0,0
+
+# RST
+O,16,0,0
+# RUN
+O,20,0,0
+# INC
+O,24,0,0
+# ADR
+O,24,0,0
+
+# Disable multiplexer
+PO,B,0,1
