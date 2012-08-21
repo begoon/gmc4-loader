@@ -1,8 +1,7 @@
 In action
 =========
 
-<iframe width="640" height="360" src="http://www.youtube.com/embed/F2tciUH0NFg" frameborder="0" allowfullscreen></iframe>
-
+<object width="560" height="315"><param name="movie" value="http://www.youtube.com/v/F2tciUH0NFg?version=3&amp;hl=en_GB"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/F2tciUH0NFg?version=3&amp;hl=en_GB" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed></object>
 
 Schematic
 =========
